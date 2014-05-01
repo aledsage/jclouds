@@ -97,6 +97,14 @@ public class ListProjectsOptions extends AccountInDomainOptions {
       }
 
       /**
+       * @see org.jclouds.cloudstack.options.ListProjectsOptions#accountInDomain(String, String)
+       */
+      public static ListProjectsOptions account(String project) {
+         ListProjectsOptions options = new ListProjectsOptions();
+         return options.account(project);
+      }
+
+      /**
        * @see org.jclouds.cloudstack.options.ListProjectsOptions#domainId
        */
       public static ListProjectsOptions domainId(String domainId) {
@@ -159,6 +167,14 @@ public class ListProjectsOptions extends AccountInDomainOptions {
    @Override
    public ListProjectsOptions accountInDomain(String account, String domain) {
       return ListProjectsOptions.class.cast(super.accountInDomain(account, domain));
+   }
+
+   /**
+    * {@inheritDoc}
+    */
+   @Override
+   public ListProjectsOptions account(String account) {
+      return ListProjectsOptions.class.cast(super.account(account));
    }
 
    /**

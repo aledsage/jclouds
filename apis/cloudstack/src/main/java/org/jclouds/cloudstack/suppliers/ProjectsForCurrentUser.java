@@ -17,6 +17,7 @@
 package org.jclouds.cloudstack.suppliers;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+import static org.jclouds.cloudstack.options.ListProjectsOptions.Builder.account;
 import static org.jclouds.cloudstack.options.ListProjectsOptions.Builder.accountInDomain;
 
 import java.util.Map;
@@ -52,7 +53,11 @@ public class ProjectsForCurrentUser implements Supplier<Map<String, Project>> {
       User currentUser = currentUserSupplier.get();
       ProjectApi projectApi = api.getProjectApi();
       return Maps.uniqueIndex(
-            projectApi.listProjects(accountInDomain(currentUser.getAccount(), currentUser.getDomainId())),
+            /*
+             * Temporary workaround for https://issues.apache.org/jira/browse/CLOUDSTACK-6508
+             * Not passing in domainid; just using account
+             */
+            projectApi.listProjects(account(currentUser.getAccount())),
             new Function<Project, String>() {
 
                @Override

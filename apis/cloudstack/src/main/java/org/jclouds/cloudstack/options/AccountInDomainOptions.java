@@ -44,6 +44,16 @@ public class AccountInDomainOptions extends BaseHttpRequestOptions {
    }
 
    /**
+    * 
+    * @param account
+    *           account for the resource
+    */
+   public AccountInDomainOptions account(String account) {
+      this.queryParameters.replaceValues("account", ImmutableSet.of(account));
+      return this;
+   }
+
+   /**
     * @param domainId
     *           The domain for the resource
     */
