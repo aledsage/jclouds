@@ -92,7 +92,7 @@ public class CreateVolumeOptions extends BaseEC2RequestOptions {
     */
    public CreateVolumeOptions isEncrypted(boolean encrypted) {
       if (encrypted)
-         formParameters.put("Encrypted", "true");
+         formParameters.put("Encrypted", "1");
       return this;
    }
 

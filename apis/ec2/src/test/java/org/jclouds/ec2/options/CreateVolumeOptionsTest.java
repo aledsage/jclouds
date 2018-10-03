@@ -137,7 +137,7 @@ public class CreateVolumeOptionsTest {
       CreateVolumeOptions options = new CreateVolumeOptions();
       options.isEncrypted(true);
       assertEquals(options.buildFormParameters().get("Encrypted"),
-              ImmutableList.of("true"));
+              ImmutableList.of("1"));
    }
 
    @Test
@@ -150,7 +150,7 @@ public class CreateVolumeOptionsTest {
    public void testIsEncryptedStatic() {
       CreateVolumeOptions options = isEncrypted(true);
       assertEquals(options.buildFormParameters().get("Encrypted"),
-              ImmutableList.of("true"));
+              ImmutableList.of("1"));
    }
 
 }
